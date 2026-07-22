@@ -1,0 +1,17 @@
+excluded:
+  - Modules/*/.build
+  - Tuist
+  - Derived
+
+only_rules:
+  - missing_docs
+  - force_unwrapping
+  - force_try
+  - implicitly_unwrapped_optional
+  - for_where
+  - orphaned_doc_comment
+
+missing_docs:
+  warning:
+    - open
+    - public

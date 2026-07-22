@@ -1,0 +1,1047 @@
+{
+ "metadata": {
+  "formatVersion": {
+   "major": 0,
+   "minor": 6,
+   "patch": 0
+  },
+  "generator": "Apple Swift version 6.4 (swiftlang-6.4.0.20.104 clang-2100.3.20.102)"
+ },
+ "module": {
+  "name": "PencilKit",
+  "platform": {
+   "architecture": "aarch64",
+   "vendor": "apple",
+   "operatingSystem": {
+    "name": "ios",
+    "minimumVersion": {
+     "major": 27,
+     "minor": 0
+    }
+   }
+  }
+ },
+ "symbols": [
+  {
+   "kind": {
+    "identifier": "swift.property",
+    "displayName": "Instance Property"
+   },
+   "identifier": {
+    "precise": "s:9PencilKit8PKStrokeV11RenderStateV11grainOffsetSo7CGPointVSgvp",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKStroke",
+    "RenderState",
+    "grainOffset"
+   ],
+   "names": {
+    "title": "grainOffset",
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "var"
+     },
+     {
+      "kind": "text",
+      "spelling": " "
+     },
+     {
+      "kind": "identifier",
+      "spelling": "grainOffset"
+     },
+     {
+      "kind": "text",
+      "spelling": ": "
+     },
+     {
+      "kind": "typeIdentifier",
+      "spelling": "CGPoint",
+      "preciseIdentifier": "c:@S@CGPoint"
+     },
+     {
+      "kind": "text",
+      "spelling": "?"
+     }
+    ]
+   },
+   "docComment": {
+    "module": "PencilKit",
+    "lines": [
+     {
+      "text": "The pre-transform position of the grain texture for strokes with a backing grain texture such as crayon."
+     }
+    ]
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "var"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "identifier",
+     "spelling": "grainOffset"
+    },
+    {
+     "kind": "text",
+     "spelling": ": "
+    },
+    {
+     "kind": "typeIdentifier",
+     "spelling": "CGPoint",
+     "preciseIdentifier": "c:@S@CGPoint"
+    },
+    {
+     "kind": "text",
+     "spelling": "?"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "macOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "visionOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.method",
+    "displayName": "Instance Method"
+   },
+   "identifier": {
+    "precise": "s:So22PKToolPickerVisibilityV9PencilKitE6toggleyyF",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKToolPickerVisibility",
+    "toggle()"
+   ],
+   "names": {
+    "title": "toggle()",
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "func"
+     },
+     {
+      "kind": "text",
+      "spelling": " "
+     },
+     {
+      "kind": "identifier",
+      "spelling": "toggle"
+     },
+     {
+      "kind": "text",
+      "spelling": "()"
+     }
+    ]
+   },
+   "docComment": {
+    "module": "PencilKit",
+    "lines": [
+     {
+      "text": "Toggles between hidden / visible."
+     }
+    ]
+   },
+   "functionSignature": {
+    "returns": [
+     {
+      "kind": "text",
+      "spelling": "()"
+     }
+    ]
+   },
+   "swiftExtension": {
+    "extendedModule": "PencilKit",
+    "typeKind": "swift.enum"
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "mutating"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "keyword",
+     "spelling": "func"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "identifier",
+     "spelling": "toggle"
+    },
+    {
+     "kind": "text",
+     "spelling": "()"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 26,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "visionOS",
+     "introduced": {
+      "major": 26,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.enum",
+    "displayName": "Enumeration"
+   },
+   "identifier": {
+    "precise": "s:9PencilKit12PKEraserToolV10EraserTypeO",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKEraserTool",
+    "EraserType"
+   ],
+   "names": {
+    "title": "PKEraserTool.EraserType",
+    "navigator": [
+     {
+      "kind": "identifier",
+      "spelling": "EraserType"
+     }
+    ],
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "enum"
+     },
+     {
+      "kind": "text",
+      "spelling": " "
+     },
+     {
+      "kind": "identifier",
+      "spelling": "EraserType"
+     }
+    ]
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "enum"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "identifier",
+     "spelling": "EraserType"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 13,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "macOS",
+     "introduced": {
+      "major": 11,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.init",
+    "displayName": "Initializer"
+   },
+   "identifier": {
+    "precise": "s:9PencilKit8PKStrokeV11RenderStateV11grainOffsetAESo7CGPointVSg_tcfc",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKStroke",
+    "RenderState",
+    "init(grainOffset:)"
+   ],
+   "names": {
+    "title": "init(grainOffset:)",
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "init"
+     },
+     {
+      "kind": "text",
+      "spelling": "("
+     },
+     {
+      "kind": "externalParam",
+      "spelling": "grainOffset"
+     },
+     {
+      "kind": "text",
+      "spelling": ": "
+     },
+     {
+      "kind": "typeIdentifier",
+      "spelling": "CGPoint",
+      "preciseIdentifier": "c:@S@CGPoint"
+     },
+     {
+      "kind": "text",
+      "spelling": "?)"
+     }
+    ]
+   },
+   "docComment": {
+    "module": "PencilKit",
+    "lines": [
+     {
+      "text": "Creates a render state with the specified grain offset."
+     },
+     {
+      "text": ""
+     },
+     {
+      "text": "- Parameter grainOffset: The grain texture offset. Defaults to nil."
+     }
+    ]
+   },
+   "functionSignature": {
+    "parameters": [
+     {
+      "name": "grainOffset",
+      "declarationFragments": [
+       {
+        "kind": "identifier",
+        "spelling": "grainOffset"
+       },
+       {
+        "kind": "text",
+        "spelling": ": "
+       },
+       {
+        "kind": "typeIdentifier",
+        "spelling": "CGPoint",
+        "preciseIdentifier": "c:@S@CGPoint"
+       },
+       {
+        "kind": "text",
+        "spelling": "?"
+       }
+      ]
+     }
+    ]
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "init"
+    },
+    {
+     "kind": "text",
+     "spelling": "("
+    },
+    {
+     "kind": "externalParam",
+     "spelling": "grainOffset"
+    },
+    {
+     "kind": "text",
+     "spelling": ": "
+    },
+    {
+     "kind": "typeIdentifier",
+     "spelling": "CGPoint",
+     "preciseIdentifier": "c:@S@CGPoint"
+    },
+    {
+     "kind": "text",
+     "spelling": "? = nil)"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "macOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "visionOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.enum.case",
+    "displayName": "Case"
+   },
+   "identifier": {
+    "precise": "s:9PencilKit12PKEraserToolV10EraserTypeO6vectoryA2EmF",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKEraserTool",
+    "EraserType",
+    "vector"
+   ],
+   "names": {
+    "title": "PKEraserTool.EraserType.vector",
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "case"
+     },
+     {
+      "kind": "text",
+      "spelling": " "
+     },
+     {
+      "kind": "identifier",
+      "spelling": "vector"
+     }
+    ]
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "case"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "identifier",
+     "spelling": "vector"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 13,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "macOS",
+     "introduced": {
+      "major": 11,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.init",
+    "displayName": "Initializer"
+   },
+   "identifier": {
+    "precise": "s:9PencilKit8PKStrokeV11RenderStateVyAESo0cdE0Ccfc",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKStroke",
+    "RenderState",
+    "init(_:)"
+   ],
+   "names": {
+    "title": "init(_:)",
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "init"
+     },
+     {
+      "kind": "text",
+      "spelling": "("
+     },
+     {
+      "kind": "typeIdentifier",
+      "spelling": "__PKStrokeRenderState"
+     },
+     {
+      "kind": "text",
+      "spelling": ")"
+     }
+    ]
+   },
+   "docComment": {
+    "module": "PencilKit",
+    "lines": [
+     {
+      "text": "Creates a `RenderState` from its Objective-C counterpart `PKStrokeRenderState`."
+     },
+     {
+      "text": ""
+     },
+     {
+      "text": "- Parameter objcValue: The Objective-C `PKStrokeRenderState` to convert from."
+     }
+    ]
+   },
+   "functionSignature": {
+    "parameters": [
+     {
+      "name": "objcValue",
+      "declarationFragments": [
+       {
+        "kind": "identifier",
+        "spelling": "objcValue"
+       },
+       {
+        "kind": "text",
+        "spelling": ": "
+       },
+       {
+        "kind": "typeIdentifier",
+        "spelling": "__PKStrokeRenderState"
+       }
+      ]
+     }
+    ]
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "init"
+    },
+    {
+     "kind": "text",
+     "spelling": "("
+    },
+    {
+     "kind": "externalParam",
+     "spelling": "_"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "internalParam",
+     "spelling": "objcValue"
+    },
+    {
+     "kind": "text",
+     "spelling": ": "
+    },
+    {
+     "kind": "typeIdentifier",
+     "spelling": "__PKStrokeRenderState"
+    },
+    {
+     "kind": "text",
+     "spelling": ")"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "macOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "visionOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.struct",
+    "displayName": "Structure"
+   },
+   "identifier": {
+    "precise": "s:9PencilKit8PKStrokeV11RenderStateV",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKStroke",
+    "RenderState"
+   ],
+   "names": {
+    "title": "PKStroke.RenderState",
+    "navigator": [
+     {
+      "kind": "identifier",
+      "spelling": "RenderState"
+     }
+    ],
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "struct"
+     },
+     {
+      "kind": "text",
+      "spelling": " "
+     },
+     {
+      "kind": "identifier",
+      "spelling": "RenderState"
+     }
+    ]
+   },
+   "docComment": {
+    "module": "PencilKit",
+    "lines": [
+     {
+      "text": "The render details of a stroke, including particle positioning and grain texture offset."
+     },
+     {
+      "text": ""
+     },
+     {
+      "text": "Some state is exposed, but other state is opaque. Encode using `Codable` to persist all stored information."
+     }
+    ]
+   },
+   "swiftExtension": {
+    "extendedModule": "PencilKit",
+    "typeKind": "swift.struct"
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "struct"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "identifier",
+     "spelling": "RenderState"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "macOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "visionOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.enum",
+    "displayName": "Enumeration"
+   },
+   "identifier": {
+    "precise": "c:@E@PKToolPickerVisibility",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKToolPickerVisibility"
+   ],
+   "names": {
+    "title": "PKToolPickerVisibility",
+    "navigator": [
+     {
+      "kind": "identifier",
+      "spelling": "PKToolPickerVisibility"
+     }
+    ],
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "enum"
+     },
+     {
+      "kind": "text",
+      "spelling": " "
+     },
+     {
+      "kind": "identifier",
+      "spelling": "PKToolPickerVisibility"
+     }
+    ]
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "enum"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "identifier",
+     "spelling": "PKToolPickerVisibility"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 26,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.struct",
+    "displayName": "Structure"
+   },
+   "identifier": {
+    "precise": "s:9PencilKit12PKEraserToolV",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKEraserTool"
+   ],
+   "names": {
+    "title": "PKEraserTool",
+    "navigator": [
+     {
+      "kind": "identifier",
+      "spelling": "PKEraserTool"
+     }
+    ],
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "struct"
+     },
+     {
+      "kind": "text",
+      "spelling": " "
+     },
+     {
+      "kind": "identifier",
+      "spelling": "PKEraserTool"
+     }
+    ]
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "struct"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "identifier",
+     "spelling": "PKEraserTool"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 13,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "macOS",
+     "introduced": {
+      "major": 11,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.struct",
+    "displayName": "Structure"
+   },
+   "identifier": {
+    "precise": "s:9PencilKit8PKStrokeV",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKStroke"
+   ],
+   "names": {
+    "title": "PKStroke",
+    "navigator": [
+     {
+      "kind": "identifier",
+      "spelling": "PKStroke"
+     }
+    ],
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "struct"
+     },
+     {
+      "kind": "text",
+      "spelling": " "
+     },
+     {
+      "kind": "identifier",
+      "spelling": "PKStroke"
+     }
+    ]
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "struct"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "identifier",
+     "spelling": "PKStroke"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 14,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "macOS",
+     "introduced": {
+      "major": 11,
+      "minor": 0
+     }
+    }
+   ]
+  },
+  {
+   "kind": {
+    "identifier": "swift.property",
+    "displayName": "Instance Property"
+   },
+   "identifier": {
+    "precise": "s:FAKEDEFAULT::SYNTHESIZED::s:9PencilKit8PKStrokeV11RenderStateV",
+    "interfaceLanguage": "swift"
+   },
+   "pathComponents": [
+    "PKStroke",
+    "RenderState",
+    "synthesizedFlag"
+   ],
+   "names": {
+    "title": "PKStroke.RenderState.synthesizedFlag",
+    "navigator": [
+     {
+      "kind": "identifier",
+      "spelling": "RenderState"
+     }
+    ],
+    "subHeading": [
+     {
+      "kind": "keyword",
+      "spelling": "struct"
+     },
+     {
+      "kind": "text",
+      "spelling": " "
+     },
+     {
+      "kind": "identifier",
+      "spelling": "RenderState"
+     }
+    ]
+   },
+   "docComment": {
+    "module": "PencilKit",
+    "lines": [
+     {
+      "text": "The render details of a stroke, including particle positioning and grain texture offset."
+     },
+     {
+      "text": ""
+     },
+     {
+      "text": "Some state is exposed, but other state is opaque. Encode using `Codable` to persist all stored information."
+     }
+    ]
+   },
+   "swiftExtension": {
+    "extendedModule": "PencilKit",
+    "typeKind": "swift.struct"
+   },
+   "declarationFragments": [
+    {
+     "kind": "keyword",
+     "spelling": "struct"
+    },
+    {
+     "kind": "text",
+     "spelling": " "
+    },
+    {
+     "kind": "identifier",
+     "spelling": "RenderState"
+    }
+   ],
+   "accessLevel": "public",
+   "availability": [
+    {
+     "domain": "iOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "macOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    },
+    {
+     "domain": "visionOS",
+     "introduced": {
+      "major": 27,
+      "minor": 0
+     }
+    }
+   ]
+  }
+ ],
+ "relationships": [
+  {
+   "kind": "memberOf",
+   "source": "s:So22PKToolPickerVisibilityV9PencilKitE6toggleyyF",
+   "target": "c:@E@PKToolPickerVisibility"
+  },
+  {
+   "kind": "memberOf",
+   "source": "s:9PencilKit8PKStrokeV11RenderStateV",
+   "target": "s:9PencilKit8PKStrokeV"
+  },
+  {
+   "kind": "memberOf",
+   "source": "s:9PencilKit8PKStrokeV11RenderStateV11grainOffsetSo7CGPointVSgvp",
+   "target": "s:9PencilKit8PKStrokeV11RenderStateV"
+  },
+  {
+   "kind": "memberOf",
+   "source": "s:9PencilKit8PKStrokeV11RenderStateV11grainOffsetAESo7CGPointVSg_tcfc",
+   "target": "s:9PencilKit8PKStrokeV11RenderStateV"
+  },
+  {
+   "kind": "memberOf",
+   "source": "s:9PencilKit8PKStrokeV11RenderStateVyAESo0cdE0Ccfc",
+   "target": "s:9PencilKit8PKStrokeV11RenderStateV"
+  },
+  {
+   "kind": "memberOf",
+   "source": "s:9PencilKit12PKEraserToolV10EraserTypeO",
+   "target": "s:9PencilKit12PKEraserToolV"
+  },
+  {
+   "kind": "memberOf",
+   "source": "s:9PencilKit12PKEraserToolV10EraserTypeO6vectoryA2EmF",
+   "target": "s:9PencilKit12PKEraserToolV10EraserTypeO"
+  },
+  {
+   "kind": "memberOf",
+   "source": "s:FAKEDEFAULT::SYNTHESIZED::s:9PencilKit8PKStrokeV11RenderStateV",
+   "target": "s:9PencilKit8PKStrokeV11RenderStateV"
+  }
+ ]
+}

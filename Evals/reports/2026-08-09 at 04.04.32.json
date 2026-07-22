@@ -1,0 +1,267 @@
+{
+  "cases": {
+    "AccessoryLiveActivities:ios:26.5": {
+      "checks": {
+        "grounded_symbols": [
+          3,
+          3
+        ],
+        "mentions_a_symbol": [
+          3,
+          3
+        ],
+        "no_boilerplate": [
+          3,
+          3
+        ],
+        "no_kind_jargon": [
+          3,
+          3
+        ],
+        "prose_format": [
+          3,
+          3
+        ],
+        "sentence_cap": [
+          3,
+          3
+        ]
+      },
+      "firstSummary": "The AccessoryLiveActivities framework has two new types: AccessoryLiveActivity and LiveActivityForwarding. AccessoryLiveActivity is a structured object that contains information about a live activity update, such as an alert message, an icon, and the title of the activity. LiveActivityForwarding is an accessory feature that allows developers to receive information about live activities.",
+      "judgeScores": [
+        3,
+        1,
+        1
+      ]
+    },
+    "DeclaredAgeRange:ios:26.0": {
+      "checks": {
+        "grounded_symbols": [
+          3,
+          3
+        ],
+        "mentions_a_symbol": [
+          3,
+          3
+        ],
+        "no_boilerplate": [
+          3,
+          3
+        ],
+        "no_kind_jargon": [
+          3,
+          3
+        ],
+        "prose_format": [
+          3,
+          3
+        ],
+        "sentence_cap": [
+          3,
+          3
+        ]
+      },
+      "firstSummary": "The DeclaredAgeRange framework includes the AgeRangeService struct, which provides a method to request a person's age range. It includes an instance property for active parental controls and an instance property for the age range declaration. It also includes an enum for the age range declaration and an enum for the age range declaration. It includes an enum for the age range declaration.",
+      "judgeScores": [
+        1,
+        1,
+        1
+      ]
+    },
+    "PencilKit:ios:26.0": {
+      "checks": {
+        "grounded_symbols": [
+          2,
+          3
+        ],
+        "mentions_a_symbol": [
+          3,
+          3
+        ],
+        "no_boilerplate": [
+          3,
+          3
+        ],
+        "no_kind_jargon": [
+          3,
+          3
+        ],
+        "prose_format": [
+          3,
+          3
+        ],
+        "sentence_cap": [
+          3,
+          3
+        ]
+      },
+      "firstSummary": "Apple added a new property to the PencilKit framework for the PencilKitResponderState enum, which tracks the state of the pencil. The PencilKit framework also introduced a new struct, PKDrawing, for drawing in a dark user interface style. The PencilKit framework also introduced a new class, PKToolPicker, which allows users to choose a pencil type.",
+      "judgeScores": [
+        2,
+        1,
+        2
+      ]
+    },
+    "StoreKit:ios:26.5": {
+      "checks": {
+        "no_boilerplate": [
+          1,
+          1
+        ],
+        "no_kind_jargon": [
+          1,
+          1
+        ],
+        "plain_is_deterministic": [
+          1,
+          1
+        ],
+        "prose_format": [
+          1,
+          1
+        ],
+        "sentence_cap": [
+          1,
+          1
+        ]
+      },
+      "firstSummary": "StoreKit adds the Product.PurchaseError.paymentMethodBindingConfigurationRequired enum case, the paymentMethodBindingConfigurationRequired type property and the SKError.Code.paymentMethodBindingConfigurationRequired enum case."
+    },
+    "SwiftUI:macos:26.0": {
+      "checks": {
+        "grounded_symbols": [
+          2,
+          3
+        ],
+        "mentions_a_symbol": [
+          3,
+          3
+        ],
+        "no_boilerplate": [
+          2,
+          3
+        ],
+        "no_kind_jargon": [
+          3,
+          3
+        ],
+        "prose_format": [
+          3,
+          3
+        ],
+        "sentence_cap": [
+          3,
+          3
+        ]
+      },
+      "firstSummary": "New APIs for the SwiftUI framework in macOS 26.0 include the new `OpenImmersiveSpaceAction` and `RemoteImmersiveSpace`, which present immersive spaces and allow content to be displayed in unbounded spaces on remote devices. There are also 11 new types, including the `FullImmersionStyle`, and 2 protocols, `ToolbarContent` and `WidgetBundleBuilder`, as well as 3 structures, `AttributedTextFormatting.Transferable`, `AttributedTextSelection`, and `DropSession`.",
+      "judgeScores": [
+        2,
+        2,
+        3
+      ]
+    },
+    "SwiftUICore:ios:26.0": {
+      "checks": {
+        "grounded_symbols": [
+          2,
+          2
+        ],
+        "mentions_a_symbol": [
+          2,
+          2
+        ],
+        "no_boilerplate": [
+          2,
+          2
+        ],
+        "no_kind_jargon": [
+          2,
+          2
+        ],
+        "prose_format": [
+          2,
+          2
+        ],
+        "sentence_cap": [
+          2,
+          2
+        ]
+      },
+      "firstSummary": "This new iOS 26.0 framework includes a new Shape protocol, which allows developers to create custom shapes for their views. There are also new RoundedRectangularShape and UnevenRoundedRectangle structs, which provide more flexibility in creating rounded and uneven rectangles. Additionally, there are new Text and ScrollPosition structs, which allow developers to create and customize text views and scroll views. New in this framework are the ConcentricRectangle struct, which replaces the current container shape with a concentric version of the current container shape, and the GlassEffectContainer struct, which combines multiple glass shapes into a single shape that can morph individual shapes into one another.",
+      "judgeScores": [
+        2,
+        1
+      ]
+    },
+    "TouchController:ios:26.0": {
+      "checks": {
+        "grounded_symbols": [
+          2,
+          2
+        ],
+        "mentions_a_symbol": [
+          2,
+          2
+        ],
+        "no_boilerplate": [
+          2,
+          2
+        ],
+        "no_kind_jargon": [
+          2,
+          2
+        ],
+        "prose_format": [
+          2,
+          2
+        ],
+        "sentence_cap": [
+          2,
+          2
+        ]
+      },
+      "firstSummary": "TouchController now includes an instance property named `label`, an instance method named `handleTouchBegan(at:)`, and an instance method named `handleTouchEnded(at:)`. The `TCButton` class now includes an instance property named `colliderShape`, and an instance method named `buttonContents(forSystemImageNamed:size:shape:controller:)`. The `TCControlContents` class now includes an instance property named `images` and an instance method named `switchedOnContents(forSystemImageNamed:size:shape:controller:)`. The `TCThrottle` class now includes an instance property named `backgroundContents` and an instance method named `throttleBackgroundContents(size:controller:)`. The `TCThumbstick` class now includes an instance property named `stickContents` and an instance method named `thumbstickStickContents(size:controller:)`. The `TCThumbstickDescriptor` class now includes an instance property named `stickSize` and an instance method named `thumbstickStickContents(size:controller:)`.",
+      "judgeScores": [
+        1,
+        1
+      ]
+    },
+    "WebKit:ios:26.5": {
+      "checks": {
+        "grounded_symbols": [
+          3,
+          3
+        ],
+        "mentions_a_symbol": [
+          3,
+          3
+        ],
+        "no_boilerplate": [
+          3,
+          3
+        ],
+        "no_kind_jargon": [
+          3,
+          3
+        ],
+        "prose_format": [
+          3,
+          3
+        ],
+        "sentence_cap": [
+          3,
+          3
+        ]
+      },
+      "firstSummary": "WebKit introduced the WKSecurityRestrictionMode enum and the WKWebpagePreferences class, both of which provide security settings for web content. WKSecurityRestrictionMode includes cases for lockdown, maximize compatibility, and none, while WKWebpagePreferences includes an instance property named securityRestrictionMode.",
+      "judgeScores": [
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "created": "2026-08-09T03:04:32Z",
+  "runs": 3
+}

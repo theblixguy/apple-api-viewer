@@ -1,0 +1,11 @@
+.DS_Store
+xcuserdata/
+DerivedData/
+*.xcodeproj
+*.xcworkspace
+Derived/
+.build/
+__pycache__/
+CODE_REVIEW.md
+.release/
+.vscode/

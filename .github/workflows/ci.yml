@@ -1,0 +1,86 @@
+name: CI
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - "skills/**"
+  pull_request:
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - "skills/**"
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "26.6"
+
+      - name: Lint
+        run: |
+          # The runner image ships stale casks and formulae. Without the
+          # update, brew would install months-old versions.
+          brew update --quiet
+          brew install swiftformat swiftlint
+          swiftformat --lint .
+          swiftlint --strict --quiet
+
+      - name: Install Tuist
+        run: brew install --cask tuist
+
+      - name: Cache SPM builds
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/Library/Caches/org.swift.swiftpm
+            Tuist/.build
+            Modules/*/.build
+          key: spm-${{ runner.os }}-xcode26.6-${{ hashFiles('**/Package.resolved', '**/Package.swift') }}
+          restore-keys: spm-${{ runner.os }}-xcode26.6-
+
+      - name: Generate project
+        run: |
+          tuist install || {
+            rm -rf Tuist/.build/workspace-state.json Tuist/.build/artifacts
+            tuist install
+          }
+          tuist generate --no-open
+
+      - name: Build app
+        run: |
+          set -o pipefail
+          xcodebuild -workspace AppleAPIViewer.xcworkspace \
+            -scheme apple-api-viewer -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO build | tail -40
+
+      - name: Module tests
+        run: |
+          for package in Modules/*/; do
+            [ -d "$package/Tests" ] || continue
+            echo "::group::$(basename "$package")"
+            swift test --package-path "$package"
+            echo "::endgroup::"
+          done
+
+      - name: CLI tests
+        run: |
+          set -o pipefail
+          xcodebuild -workspace AppleAPIViewer.xcworkspace \
+            -scheme apple-api-viewer-cli-tests \
+            CODE_SIGNING_ALLOWED=NO test | tail -40

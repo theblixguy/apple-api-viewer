@@ -1,0 +1,155 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@ · %@" : {
+      "comment" : "Sidebar section header: platform name · selected versions."
+    },
+    "%@ of ^[%@ modules](inflect: true)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ of ^[%2$@ modules](inflect: true)"
+          }
+        }
+      }
+    },
+    "%lld versions" : {
+      "comment" : "Compact label when more than two releases are selected, e.g. \"3 versions\".",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld version"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld versions"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "^[%@ new APIs](inflect: true) in %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "^[%1$@ new APIs](inflect: true) in %2$@."
+          }
+        }
+      }
+    },
+    "Add an Xcode from outside /Applications." : {
+
+    },
+    "Add it back any time with Add Xcode." : {
+
+    },
+    "Automatic" : {
+
+    },
+    "Couldn't open the saved index, so changes won't be kept after you quit." : {
+      "comment" : "Banner shown when the saved index can't be opened and a temporary in-memory store is used."
+    },
+    "Double-click a row to expand or collapse it. Double-clicking an API opens its documentation." : {
+
+    },
+    "Double-click to expand" : {
+
+    },
+    "Each Xcode keeps its own index, so switching to one you've indexed before is instant." : {
+
+    },
+    "Finding modules…" : {
+
+    },
+    "Generated on device. Check important details in the list." : {
+
+    },
+    "Installed SDKs or Xcode changed since the index was built." : {
+
+    },
+    "Its stored index is removed too. Add it back any time with Add Xcode." : {
+
+    },
+    "Its Xcode is gone, so the index browses but can't be rebuilt." : {
+
+    },
+    "Kind" : {
+      "comment" : "Header of the symbol-kind filter popover."
+    },
+    "Locating Xcode and SDKs…" : {
+
+    },
+    "Look up an API from any app without switching windows. Opening at login keeps the menu bar search available." : {
+
+    },
+    "Manage Xcodes…" : {
+
+    },
+    "No inline documentation. Open the Documentation tab to read the full page." : {
+
+    },
+    "No Xcode found in /Applications." : {
+
+    },
+    "Not installed" : {
+
+    },
+    "One index per Xcode" : {
+
+    },
+    "Saving index…" : {
+
+    },
+    "Select a framework to see what's new." : {
+
+    },
+    "Select an API to see details." : {
+
+    },
+    "Select an OS version in the filter above." : {
+
+    },
+    "Show APIs in" : {
+
+    },
+    "Stopping the modules in progress." : {
+
+    },
+    "Summarizing…" : {
+
+    },
+    "Symbols are extracted from your latest SDKs, once per Xcode build." : {
+
+    },
+    "The index builds from the checked choice. An index whose Xcode is gone stays browsable until you delete it." : {
+
+    },
+    "This API isn't in the current index. Re-indexing may help." : {
+      "comment" : "Shown in the detail pane when a selected API can't be found in the index."
+    },
+    "This frees about %@. Browsing this Xcode again rebuilds it." : {
+
+    },
+    "This frees about %@. Its Xcode is gone, so the index can't be rebuilt." : {
+
+    },
+    "This frees about %@. The index rebuilds immediately, since this Xcode is being browsed." : {
+
+    },
+    "Xcodes" : {
+
+    }
+  },
+  "version" : "1.0"
+}
