@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Apple API Viewer</title>
+        <item>
+            <title>0.1.0</title>
+            <pubDate>Mon, 10 Aug 2026 03:05:10 +0000</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/theblixguy/apple-api-viewer/releases/download/v0.1.0/AppleAPIViewer-0.1.0.dmg" length="18042658" type="application/octet-stream" sparkle:edSignature="BnlsWeIqlAdpXlVBjaBmh0mkw9WDuo96D3tiwaG+SR7Lqy+IFLbmUlCaNzJiyAqtK2MSGpAx8YD7LLsq1ab4Dw=="/>
+        </item>
+    </channel>
+</rss>
