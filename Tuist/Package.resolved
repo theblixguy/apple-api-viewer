@@ -1,5 +1,5 @@
 {
-  "originHash" : "5767acf77b7ce1152f17e3025b13c97d4d42037743c8677bfbd01cbb9476afca",
+  "originHash" : "ba2d48f958e0668229bc8f4ed42fb1fb92890fca71fe4ad87acbd958c9f7c017",
   "pins" : [
     {
       "identity" : "combine-schedulers",
@@ -29,12 +29,21 @@
       }
     },
     {
+      "identity" : "opencombine",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenCombine/OpenCombine.git",
+      "state" : {
+        "revision" : "8576f0d579b27020beccbccc3ea6844f3ddfc2c2",
+        "version" : "0.14.0"
+      }
+    },
+    {
       "identity" : "sparkle",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sparkle-project/Sparkle",
       "state" : {
-        "revision" : "b6496a74a087257ef5e6da1c5b29a447a60f5bd7",
-        "version" : "2.9.4"
+        "revision" : "79bc9e872948e47877e76f194cb0c8e0412b0b90",
+        "version" : "2.9.5"
       }
     },
     {
@@ -131,8 +140,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nodes-app/swift-markdown-engine",
       "state" : {
-        "revision" : "3d55f661b716cc8ae768c1ce8addf7b2e522f099",
-        "version" : "0.10.1"
+        "revision" : "9244f8bc88590520a902b83b9f6c3f45d0690eb7",
+        "version" : "0.11.0"
       }
     },
     {
