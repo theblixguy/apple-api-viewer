@@ -127,6 +127,43 @@ public struct SymbolQuery: Sendable {
     )
   }
 
+  /// Returns the diff of one framework between two sources' indexes.
+  ///
+  /// A module that one source does not index diffs against an empty
+  /// snapshot, so all of its symbols count as added or removed.
+  ///
+  /// - Parameters:
+  ///   - moduleName: The framework's module name.
+  ///   - oldSource: The source whose index is the old snapshot.
+  ///   - newSource: The source whose index is the new snapshot.
+  /// - Returns: The framework's diff between the two sources' indexes.
+  /// - Throws: An error if the underlying database read fails.
+  public func frameworkDiff(
+    forModule moduleName: String,
+    from oldSource: Source.ID,
+    to newSource: Source.ID
+  ) async throws -> FrameworkDiff {
+    try await store.frameworkDiff(
+      forModule: moduleName, from: oldSource, to: newSource
+    )
+  }
+
+  /// Returns each framework's diff counts between two sources' indexes,
+  /// sorted by module name and without frameworks whose API is the same in
+  /// both.
+  ///
+  /// - Parameters:
+  ///   - oldSource: The source whose index is the old snapshot.
+  ///   - newSource: The source whose index is the new snapshot.
+  /// - Returns: Each changed framework's diff counts between the two
+  ///   sources' indexes.
+  /// - Throws: An error if the underlying database read fails.
+  public func frameworkDiffSummaries(
+    from oldSource: Source.ID, to newSource: Source.ID
+  ) async throws -> [FrameworkDiffSummary] {
+    try await store.frameworkDiffSummaries(from: oldSource, to: newSource)
+  }
+
   /// Returns the symbol with the given USR in a framework in `source`'s
   /// index, or `nil` when it is not indexed there.
   ///

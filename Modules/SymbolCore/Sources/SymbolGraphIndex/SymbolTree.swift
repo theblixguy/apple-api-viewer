@@ -60,14 +60,27 @@ extension FrameworkIndex {
   )
     -> [SymbolTreeNode]
   {
+    tree(
+      matchingUSRs: Set(
+        symbols.filter {
+          $0.wasIntroduced(inAnyOf: selections)
+            && (kinds?.contains($0.kind) ?? true)
+        }.map(\.usr)
+      )
+    )
+  }
+
+  /// Returns the tree of the symbols with the given USRs, along with every
+  /// ancestor type up to the top level.
+  ///
+  /// The tree has the same shape as ``newSymbolTree(for:kinds:)``, with the
+  /// match set given directly instead of derived from a version selection.
+  ///
+  /// - Parameter matchUSRs: The USRs of the symbols that count as matches.
+  /// - Returns: The roots of the tree, empty when no USR is in this index.
+  public func tree(matchingUSRs matchUSRs: Set<String>) -> [SymbolTreeNode] {
     let byUSR = Dictionary(
       symbols.map { ($0.usr, $0) }, uniquingKeysWith: { first, _ in first }
-    )
-    let matchUSRs = Set(
-      symbols.filter {
-        $0.wasIntroduced(inAnyOf: selections)
-          && (kinds?.contains($0.kind) ?? true)
-      }.map(\.usr)
     )
     guard !matchUSRs.isEmpty else { return [] }
 
