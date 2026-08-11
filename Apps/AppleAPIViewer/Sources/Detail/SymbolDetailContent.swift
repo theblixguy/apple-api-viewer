@@ -21,6 +21,7 @@ struct SymbolDetailContent: View {
   let symbol: IndexedSymbol
   let moduleName: String
   let documentationURL: URL
+  var change: SymbolChange?
 
   @State private var tab: DetailTab = .overview
   @Environment(\.openURL) private var openURL
@@ -99,6 +100,13 @@ struct SymbolDetailContent: View {
           .foregroundStyle(.tint)
           .accessibilityHidden(true)
         VStack(alignment: .leading, spacing: Spacing.xSmall) {
+          if let change, change.old.title != symbol.title {
+            Text(change.old.title)
+              .font(.callout)
+              .strikethrough()
+              .foregroundStyle(.secondary)
+              .textSelection(.enabled)
+          }
           Text(symbol.title)
             .font(Typography.detailTitle)
             .textSelection(.enabled)
@@ -117,17 +125,80 @@ struct SymbolDetailContent: View {
   private var availabilityPills: some View {
     GlassEffectContainer(spacing: Spacing.small) {
       FlowLayout(spacing: Spacing.small) {
-        ForEach(sortedAvailability, id: \.platform) { entry in
-          AvailabilityPill(
-            text:
-            "\(entry.platform.displayName) \(BrowserModel.versionLabel(entry.version))"
-          )
-        }
-        if symbol.isDeprecated {
-          AvailabilityPill(text: String(localized: "Deprecated"), tint: .orange)
+        if let change {
+          diffedPills(for: change)
+        } else {
+          ForEach(sortedAvailability, id: \.platform) { entry in
+            AvailabilityPill(
+              text:
+              "\(entry.platform.displayName) \(BrowserModel.versionLabel(entry.version))"
+            )
+          }
+          if symbol.isDeprecated {
+            AvailabilityPill(
+              text: String(localized: "Deprecated"), tint: .orange
+            )
+          }
         }
       }
     }
+  }
+
+  // One regular pill per platform keeps the diff inside the normal pill
+  // layout. Extra tinted pills would double the row and break the look
+  // of the browse view.
+  @ViewBuilder
+  private func diffedPills(for change: SymbolChange) -> some View {
+    let old = change.old.introduced
+    let new = change.new.introduced
+    ForEach(Set(old.keys).union(new.keys).sorted()) { platform in
+      let before = old[platform]
+      let after = new[platform]
+      if before == after, let after {
+        AvailabilityPill(
+          text:
+          "\(platform.displayName) \(BrowserModel.versionLabel(after))"
+        )
+      } else {
+        AvailabilityPill(
+          Self.diffText(platform: platform, before: before, after: after)
+        )
+      }
+    }
+    if change.old.isDeprecated != change.new.isDeprecated {
+      if change.new.isDeprecated {
+        AvailabilityPill(
+          Text(verbatim: "— ").strikethrough().foregroundStyle(.secondary)
+            + Text("Deprecated"),
+          tint: .orange
+        )
+      } else {
+        AvailabilityPill(
+          Text("Deprecated").strikethrough().foregroundStyle(.secondary)
+        )
+      }
+    } else if symbol.isDeprecated {
+      AvailabilityPill(text: String(localized: "Deprecated"), tint: .orange)
+    }
+    if change.reasons.contains(.signature) {
+      AvailabilityPill(text: String(localized: "Signature changed"))
+    }
+  }
+
+  private static func diffText(
+    platform: ApplePlatform, before: SemanticVersion?, after: SemanticVersion?
+  ) -> Text {
+    let name = Text(verbatim: "\(platform.displayName) ")
+    let struckBefore = Text(
+      verbatim: before.map(BrowserModel.versionLabel) ?? "—"
+    )
+    .strikethrough()
+    .foregroundStyle(.secondary)
+    guard let after else {
+      return (name + struckBefore).strikethrough().foregroundStyle(.secondary)
+    }
+    return name + struckBefore
+      + Text(verbatim: " \(BrowserModel.versionLabel(after))")
   }
 
   private var sortedAvailability:

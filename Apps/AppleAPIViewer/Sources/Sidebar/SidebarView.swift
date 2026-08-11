@@ -17,6 +17,19 @@ struct SidebarView: View {
   @State private var isLoading = false
 
   var body: some View {
+    Group {
+      if browser.isComparing {
+        CompareFrameworkList(browser: browser)
+      } else {
+        frameworkList
+      }
+    }
+    .navigationTitle("Frameworks")
+  }
+
+  // MARK: - Private
+
+  private var frameworkList: some View {
     List(selection: $browser.selectedFramework) {
       if browser.selectedPlatforms.isEmpty {
         ContentUnavailableView(
@@ -50,7 +63,6 @@ struct SidebarView: View {
         }
       }
     }
-    .navigationTitle("Frameworks")
     .safeAreaInset(edge: .top, spacing: 0) {
       PlatformFilterPanel(browser: browser)
     }
@@ -62,8 +74,6 @@ struct SidebarView: View {
       await loadFrameworks()
     }
   }
-
-  // MARK: - Private
 
   private func loadFrameworks() async {
     isLoading = true

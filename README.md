@@ -30,6 +30,7 @@ In the app you can:
 
 - Browse by platform and release, with more than one release per platform at once
 - Walk a symbol tree per framework with kind filters, or search across the whole index
+- Compare two Xcodes' indexes to see what an SDK release added, removed, and changed, down to a single symbol
 - Export a framework's new APIs as Markdown, or get an on-device summary of what changed
 - Search from the menu bar, and use the App Intents in Shortcuts, Siri, and Spotlight
 - Keep an index per Xcode, including ones you've since deleted

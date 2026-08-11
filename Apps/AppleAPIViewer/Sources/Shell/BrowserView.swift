@@ -33,7 +33,14 @@ struct BrowserView: View {
     )
     .toolbar {
       ToolbarItem {
-        KindFilterControl(browser: browser)
+        ComparePicker(browser: browser)
+      }
+      // The kind filter shapes the tree and search, which the compare
+      // list does not use.
+      if !browser.isComparing {
+        ToolbarItem {
+          KindFilterControl(browser: browser)
+        }
       }
       ToolbarSpacer(.fixed)
       ToolbarItem(placement: .primaryAction) {
