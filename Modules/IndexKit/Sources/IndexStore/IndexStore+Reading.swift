@@ -491,8 +491,7 @@ extension IndexStore {
     return String(decoding: data, as: UTF8.self)
   }
 
-  private static func domain(kind: String, value: String) -> AvailabilityDomain?
-  {
+  static func domain(kind: String, value: String) -> AvailabilityDomain? {
     switch kind {
     case "platform":
       ApplePlatform(rawValue: value).map(AvailabilityDomain.platform)

@@ -97,6 +97,40 @@ struct SymbolQueryTests {
     )
   }
 
+  @Test(
+    "The query diffs one framework between two sources",
+    .tags(.diffing),
+    .dependency(\.defaultDatabase, try IndexStore.makeInMemoryDatabase())
+  )
+  func diffsFrameworkBetweenTwoSources() async throws {
+    let store = IndexStore()
+    let older = Source(
+      id: "apple-sdk:26A1", kind: .appleSDK, displayName: "Xcode 26.0"
+    )
+    try await store.replaceIndex(
+      bySource: [
+        older: [
+          FrameworkIndex(moduleName: "PencilKit", symbols: []),
+        ],
+        sdk: [pencilKit()],
+      ],
+      signatures: [older.id: "26A1|iphoneos26.0", sdk.id: "27A|iphoneos27.0"]
+    )
+    let query = SymbolQuery(store: store)
+
+    let diff = try await query.frameworkDiff(
+      forModule: "PencilKit", from: older.id, to: sdk.id
+    )
+    let summaries = try await query.frameworkDiffSummaries(
+      from: older.id, to: sdk.id
+    )
+
+    #expect(diff.added.count == pencilKit().symbols.count)
+    #expect(diff.removed.isEmpty)
+    #expect(summaries.map(\.moduleName) == ["PencilKit"])
+    #expect(summaries.first?.addedCount == pencilKit().symbols.count)
+  }
+
   // MARK: - Helpers
 
   static func populatedQuery() async throws -> SymbolQuery {
