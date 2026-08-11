@@ -46,6 +46,7 @@ sudo ln -sf "/Applications/Apple API Viewer.app/Contents/Helpers/apple_api_viewe
 |--------------|---------------------------------------------------------|
 | `frameworks` | Lists frameworks with new API in the selected releases  |
 | `new`        | Lists a framework's new APIs                            |
+| `diff`       | Shows what two Xcodes' indexes add, remove, and change  |
 | `search`     | Searches symbols across the index                       |
 | `show`       | Shows one symbol with its availability                  |
 | `platforms`  | Lists the indexed platforms and their releases          |
