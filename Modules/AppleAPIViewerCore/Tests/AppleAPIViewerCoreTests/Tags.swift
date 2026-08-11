@@ -8,4 +8,5 @@ extension Tag {
   @Tag static var display: Self
   @Tag static var symbolTree: Self
   @Tag static var versioning: Self
+  @Tag static var diffing: Self
 }

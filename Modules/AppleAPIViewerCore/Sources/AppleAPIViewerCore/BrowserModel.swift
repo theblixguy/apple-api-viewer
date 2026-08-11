@@ -38,9 +38,34 @@ public final class BrowserModel {
   public var activeSource: Source.ID? {
     didSet {
       guard oldValue != activeSource else { return }
+      // Without this, switching to the compared Xcode would diff an index
+      // against itself.
+      if comparisonSource == activeSource { stopComparing() }
       bumpDataRevision()
     }
   }
+
+  /// The source whose index is the old snapshot in compare mode, or `nil`
+  /// when the browser is not comparing.
+  ///
+  /// ``compare(against:)`` and ``stopComparing()`` set it.
+  public internal(set) var comparisonSource: Source.ID?
+
+  /// The compared source's display name, for labels.
+  public internal(set) var comparisonDisplayName: String?
+
+  /// The framework selected in the sidebar in compare mode.
+  ///
+  /// Changing the value clears ``selectedDiffEntry``.
+  public var selectedDiffModule: String? {
+    didSet {
+      guard oldValue != selectedDiffModule else { return }
+      selectedDiffEntry = nil
+    }
+  }
+
+  /// The row selected in the compare list.
+  public var selectedDiffEntry: DiffEntry?
 
   /// Each indexed platform's selectable OS releases, newest first.
   public internal(set) var releasesByPlatform:
@@ -103,6 +128,10 @@ public final class BrowserModel {
   // A version or kind filter change reuses the cache instead of re-reading
   // and re-decoding the framework.
   @ObservationIgnored var frameworkIndexCache: [String: FrameworkIndex] = [:]
+
+  // A selection change in the compare list reuses the cache instead of
+  // re-diffing the framework.
+  @ObservationIgnored var diffCache: [String: FrameworkDiff] = [:]
 
   /// A trimmed query shorter than this does not trigger a search.
   public static let minimumSearchLength = 2

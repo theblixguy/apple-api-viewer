@@ -18,6 +18,7 @@ column, so the views stay thin and the logic stays testable.
 
 - ``FrameworkPick``
 - ``SymbolReference``
+- ``DiffEntry``
 
 ### Display helpers
 

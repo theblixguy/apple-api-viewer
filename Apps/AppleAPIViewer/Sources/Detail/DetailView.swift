@@ -14,6 +14,41 @@ struct DetailView: View {
   }
 
   var body: some View {
+    // Search stays available in compare mode and resolves its hits from
+    // the active index, so a search selection uses the browse path.
+    if browser.isComparing, !browser.isSearching {
+      compareContent
+    } else {
+      browseContent
+    }
+  }
+
+  // MARK: - Private
+
+  // A diff entry carries its full symbol record, so the compare detail
+  // renders without a store read. A removed symbol has no record in the
+  // active index to resolve against.
+  @ViewBuilder private var compareContent: some View {
+    if let entry = browser.selectedDiffEntry,
+       let module = browser.selectedDiffModule
+    {
+      SymbolDetailContent(
+        symbol: entry.symbol,
+        moduleName: module,
+        documentationURL: browser.documentationURL(
+          for: entry.symbol, in: module
+        )
+      )
+    } else {
+      ContentUnavailableView(
+        "No API selected",
+        systemImage: "doc.text.magnifyingglass",
+        description: Text("Select an API to see details.")
+      )
+    }
+  }
+
+  private var browseContent: some View {
     Group {
       switch state {
       case .empty:
