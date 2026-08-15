@@ -13,7 +13,7 @@ let project = Project(
       "SWIFT_VERSION": "6.0",
       "SWIFT_APPROACHABLE_CONCURRENCY": "YES",
       "ENABLE_HARDENED_RUNTIME": "YES",
-      "MARKETING_VERSION": "0.1.0",
+      "MARKETING_VERSION": "0.2.0",
       "CURRENT_PROJECT_VERSION": "1",
     ]
   ),
