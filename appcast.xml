@@ -3,12 +3,22 @@
     <channel>
         <title>Apple API Viewer</title>
         <item>
-            <title>0.1.0</title>
-            <pubDate>Mon, 10 Aug 2026 03:05:10 +0000</pubDate>
-            <sparkle:version>1</sparkle:version>
-            <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+            <title>0.2.0</title>
+            <pubDate>Sun, 16 Aug 2026 03:21:28 +0000</pubDate>
+            <sparkle:version>14</sparkle:version>
+            <sparkle:shortVersionString>0.2.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/theblixguy/apple-api-viewer/releases/download/v0.1.0/AppleAPIViewer-0.1.0.dmg" length="18042658" type="application/octet-stream" sparkle:edSignature="BnlsWeIqlAdpXlVBjaBmh0mkw9WDuo96D3tiwaG+SR7Lqy+IFLbmUlCaNzJiyAqtK2MSGpAx8YD7LLsq1ab4Dw=="/>
+            <description><![CDATA[<h3>Added</h3>
+<ul>
+<li>Compare mode. Pick another Xcode's index from the toolbar and see what each framework added, removed, and changed, down to one symbol.</li>
+<li>A <code class="notranslate">diff</code> command in the CLI, with the same comparison as text or JSON.</li>
+<li>Compare With in a symbol's right click menu, which limits the comparison to that symbol and its members.</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>Updated every dependency to its newest version.</li>
+</ul>]]></description>
+            <enclosure url="https://github.com/theblixguy/apple-api-viewer/releases/download/v0.2.0/AppleAPIViewer-0.2.0.dmg" length="18643535" type="application/octet-stream" sparkle:edSignature="ZKCacAgUhXbKH2g+3W/ePxxWbXEkwj6TsbCo7fiVxgTr8KBNfvj24D7BTO4IFi2PmYOYWH2gyzjdpbLUiCxuAg=="/>
         </item>
     </channel>
 </rss>
