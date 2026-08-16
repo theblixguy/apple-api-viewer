@@ -27,6 +27,20 @@ SPARKLE_TARBALL_URL="https://github.com/sparkle-project/Sparkle/releases/downloa
 
 mkdir -p "$RELEASE_DIR"
 
+NOTES_MD="$RELEASE_DIR/release-notes.md"
+
+# A missing changelog section means the release would have no notes,
+# so the build stops before the long archive step.
+awk -v version="$VERSION" '
+  $0 == "## " version { found = 1; next }
+  /^## / && found { exit }
+  found { print }
+' "$REPO_ROOT/CHANGELOG.md" > "$NOTES_MD"
+if ! grep -q '[^[:space:]]' "$NOTES_MD"; then
+  echo "CHANGELOG.md has no section for $VERSION" >&2
+  exit 1
+fi
+
 echo "Building version $VERSION build $BUILD_NUMBER"
 
 tuist install || {
@@ -114,6 +128,12 @@ fi
 rm -rf "$APPCAST_DIR"
 mkdir -p "$APPCAST_DIR"
 cp "$DMG_PATH" "$APPCAST_DIR/"
+
+# generate_appcast attaches notes from a file that shares the DMG's base
+# name. GitHub renders the markdown, so the update dialog and the release
+# page show the same notes.
+gh api markdown --field mode=gfm --field text="$(cat "$NOTES_MD")" \
+  > "$APPCAST_DIR/AppleAPIViewer-$VERSION.html"
 
 GENERATE_APPCAST_ARGS=(--download-url-prefix "$DOWNLOAD_URL_PREFIX")
 if [[ -n "${SPARKLE_PRIVATE_KEY_PATH:-}" ]]; then
