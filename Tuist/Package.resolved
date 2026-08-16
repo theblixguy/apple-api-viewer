@@ -1,5 +1,5 @@
 {
-  "originHash" : "9ed960e02cd5905544146274dde9f66b8a7c211dc17e75ac7b6f36223d7ad2c6",
+  "originHash" : "6e5e5b8f5686914129955237b19782f55467ff98fb8b584f6881d58eb2df3cf1",
   "pins" : [
     {
       "identity" : "combine-schedulers",
@@ -26,6 +26,15 @@
       "state" : {
         "revision" : "fe7aae9c9b31d3b296fd3d2dd575e1a207bb29e0",
         "version" : "3.1.0"
+      }
+    },
+    {
+      "identity" : "opencombine",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OpenCombine/OpenCombine.git",
+      "state" : {
+        "revision" : "8576f0d579b27020beccbccc3ea6844f3ddfc2c2",
+        "version" : "0.14.0"
       }
     },
     {
@@ -131,8 +140,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/nodes-app/swift-markdown-engine",
       "state" : {
-        "revision" : "9244f8bc88590520a902b83b9f6c3f45d0690eb7",
-        "version" : "0.11.0"
+        "revision" : "e5f7607fc4021181056ef7a09dbb7573dc0237d9",
+        "version" : "0.12.0"
       }
     },
     {

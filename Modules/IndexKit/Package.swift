@@ -14,7 +14,7 @@ let package = Package(
     .package(path: "../SymbolCore"),
     .package(path: "../SymbolSource"),
     .package(path: "../AppleSDKSource"),
-    .package(url: "https://github.com/pointfreeco/sqlite-data", exact: "1.9.0"),
+    .package(url: "https://github.com/pointfreeco/sqlite-data", exact: "1.10.0"),
     .package(
       url: "https://github.com/pointfreeco/swift-dependencies",
       exact: "1.14.1"

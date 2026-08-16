@@ -18,7 +18,7 @@ let package = Package(
     .package(path: "../Modules/AppleAPIViewerCore"),
     .package(
       url: "https://github.com/nodes-app/swift-markdown-engine",
-      exact: "0.11.0"
+      exact: "0.12.0"
     ),
     .package(
       url: "https://github.com/sparkle-project/Sparkle", exact: "2.9.5"
