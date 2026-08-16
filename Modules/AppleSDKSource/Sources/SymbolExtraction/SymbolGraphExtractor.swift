@@ -84,7 +84,7 @@ package enum SymbolGraphExtractor {
       throw ExtractionError.processFailed(
         module: module,
         status: exitCode(of: result.terminationStatus),
-        standardError: result.standardError ?? ""
+        standardError: result.standardError
       )
     }
     return producedFiles(forModule: module, in: outputDirectory)

@@ -38,9 +38,42 @@ public final class BrowserModel {
   public var activeSource: Source.ID? {
     didSet {
       guard oldValue != activeSource else { return }
+      // A comparison is against one specific pair of indexes. Without
+      // this, an Xcode switch in Settings would silently retarget the
+      // diff, or diff an index against itself.
+      if isComparing { stopComparing() }
       bumpDataRevision()
     }
   }
+
+  /// The source whose index is the old snapshot in compare mode, or `nil`
+  /// when the browser is not comparing.
+  ///
+  /// ``compare(against:)`` and ``stopComparing()`` set it.
+  public internal(set) var comparisonSource: Source.ID?
+
+  /// The compared source's display name, for labels.
+  public internal(set) var comparisonDisplayName: String?
+
+  /// The framework selected in the sidebar in compare mode.
+  ///
+  /// Changing the value clears ``selectedDiffEntry`` and ``focusedDiff``.
+  public var selectedDiffModule: String? {
+    didSet {
+      guard oldValue != selectedDiffModule else { return }
+      selectedDiffEntry = nil
+      focusedDiff = nil
+    }
+  }
+
+  /// The row selected in the compare list.
+  public var selectedDiffEntry: DiffEntry?
+
+  /// The symbol the comparison focuses on, or `nil` to show the whole
+  /// framework.
+  ///
+  /// Set it after ``selectedDiffModule``, whose change clears it.
+  public var focusedDiff: DiffFocus?
 
   /// Each indexed platform's selectable OS releases, newest first.
   public internal(set) var releasesByPlatform:
@@ -103,6 +136,10 @@ public final class BrowserModel {
   // A version or kind filter change reuses the cache instead of re-reading
   // and re-decoding the framework.
   @ObservationIgnored var frameworkIndexCache: [String: FrameworkIndex] = [:]
+
+  // A selection change in the compare list reuses the cache instead of
+  // re-diffing the framework.
+  @ObservationIgnored var diffCache: [String: FrameworkDiffTrees] = [:]
 
   /// A trimmed query shorter than this does not trigger a search.
   public static let minimumSearchLength = 2

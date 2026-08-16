@@ -1,5 +1,6 @@
 import AppleAPIViewerCore
 import CoreModel
+import IndexStore
 import SwiftUI
 import SymbolGraphIndex
 import TipKit
@@ -11,6 +12,7 @@ struct SymbolTreeView: View {
   @State private var selectedID: SymbolTreeNode.ID?
   @State private var expandedIDs: Set<SymbolTreeNode.ID> = []
   @State private var isLoading = true
+  @State private var compareCandidates: [IndexedSource] = []
   @Environment(\.openURL) private var openURL
 
   var body: some View {
@@ -32,6 +34,16 @@ struct SymbolTreeView: View {
           name: node.symbol.name, url: documentationURL(for: node),
           openURL: openURL
         )
+        if !compareCandidates.isEmpty {
+          Divider()
+          Menu("Compare With") {
+            ForEach(compareCandidates) { candidate in
+              Button(candidate.source.displayName) {
+                startFocusedCompare(on: node, against: candidate.source)
+              }
+            }
+          }
+        }
       }
     } primaryAction: { ids in
       guard let id = ids.first, let node = Self.firstNode(withID: id, in: nodes)
@@ -71,6 +83,13 @@ struct SymbolTreeView: View {
       if let result = await browser.tree(for: pick) { nodes = result }
       isLoading = false
     }
+    .task(
+      id: CandidatesReloadKey(
+        source: browser.activeSource, revision: browser.dataRevision
+      )
+    ) {
+      compareCandidates = await browser.comparisonCandidates()
+    }
     .onChange(of: pick) { expandedIDs = [] }
     .onChange(of: selectedID) { _, id in
       browser.selectedSymbol = id.map {
@@ -95,6 +114,18 @@ struct SymbolTreeView: View {
   }
 
   // MARK: - Private
+
+  // Comparing clears the module selection, so the module and the focus
+  // set afterward, in that order. A module change clears the focus.
+  private func startFocusedCompare(
+    on node: SymbolTreeNode, against source: Source
+  ) {
+    browser.compare(against: source)
+    browser.selectedDiffModule = pick.moduleName
+    browser.focusedDiff = DiffFocus(
+      usr: node.symbol.usr, name: node.symbol.name
+    )
+  }
 
   private func documentationURL(for node: SymbolTreeNode) -> URL {
     browser.documentationURL(
@@ -163,5 +194,10 @@ private struct TreeReloadKey: Hashable {
   let pick: FrameworkPick
   let versions: [SemanticVersion]
   let kinds: Set<SymbolKind>
+  let revision: Int
+}
+
+private struct CandidatesReloadKey: Hashable {
+  let source: Source.ID?
   let revision: Int
 }

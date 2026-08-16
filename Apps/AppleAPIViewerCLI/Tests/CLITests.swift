@@ -129,6 +129,46 @@ struct CLITests {
     #expect(output.children.first?.match == true)
   }
 
+  @Test("Diff summary output maps the per-category counts", .tags(.diffing))
+  func diffSummaryOutputMapsCounts() {
+    let output = DiffSummaryOutput(
+      FrameworkDiffSummary(
+        moduleName: "PencilKit", addedCount: 3, removedCount: 1,
+        changedCount: 2
+      )
+    )
+    #expect(output.module == "PencilKit")
+    #expect(output.added == 3)
+    #expect(output.removed == 1)
+    #expect(output.changed == 2)
+  }
+
+  @Test(
+    "Symbol change output sorts reasons and keeps both records",
+    .tags(.diffing)
+  )
+  func symbolChangeOutputSortsReasonsAndKeepsBothRecords() {
+    let old = IndexedSymbol(
+      usr: "s:f-v1", title: "T.f(_:)", kind: .method,
+      pathComponents: ["T", "f(_:)"], parentUSR: nil,
+      introduced: [.iOS: SemanticVersion(major: 26)], isDeprecated: false
+    )
+    let new = IndexedSymbol(
+      usr: "s:f-v2", title: "T.f(_:)", kind: .method,
+      pathComponents: ["T", "f(_:)"], parentUSR: nil,
+      introduced: [.iOS: SemanticVersion(major: 26)], isDeprecated: true
+    )
+
+    let output = SymbolChangeOutput(
+      SymbolChange(old: old, new: new, reasons: [.signature, .deprecation])
+    )
+
+    #expect(output.reasons == ["deprecation", "signature"])
+    #expect(output.old.usr == "s:f-v1")
+    #expect(output.new.usr == "s:f-v2")
+    #expect(output.new.deprecated)
+  }
+
   // MARK: - Argument parsing
 
   @Test("Frameworks command parses select and format options")
@@ -172,6 +212,22 @@ struct CLITests {
         .indexSelection.xcodeBuild == "17F113"
     )
     #expect(try Platforms.parse([]).indexSelection.xcodeBuild == nil)
+  }
+
+  @Test("Diff command parses builds and an optional module", .tags(.diffing))
+  func diffParsesBuildsAndOptionalModule() throws {
+    let summary = try Diff.parse(["--from", "26A1"])
+    #expect(summary.fromBuild == "26A1")
+    #expect(summary.toBuild == nil)
+    #expect(summary.module == nil)
+
+    let scoped = try Diff.parse([
+      "PencilKit", "--from", "26A1", "--to", "27A1",
+    ])
+    #expect(scoped.module == "PencilKit")
+    #expect(scoped.toBuild == "27A1")
+
+    #expect(throws: (any Error).self) { try Diff.parse([]) }
   }
 
   // MARK: - Exit codes

@@ -11,6 +11,7 @@ extension BrowserModel {
   /// ``dataRevision``. Call this after the store's contents change.
   public func bumpDataRevision() {
     frameworkIndexCache.removeAll()
+    diffCache.removeAll()
     dataRevision += 1
   }
 
@@ -19,7 +20,7 @@ extension BrowserModel {
     loadError = nil
   }
 
-  private func read<T>(_ work: () async throws -> T) async -> T? {
+  func read<T>(_ work: () async throws -> T) async -> T? {
     do {
       let value = try await work()
       if loadError != nil { loadError = nil }
@@ -172,7 +173,7 @@ extension BrowserModel {
     return await Self.symbol(usr: reference.usr, in: index)
   }
 
-  private func frameworkIndex(for moduleName: String) async -> FrameworkIndex? {
+  func frameworkIndex(for moduleName: String) async -> FrameworkIndex? {
     if let cached = frameworkIndexCache[moduleName] { return cached }
     guard let activeSource else { return nil }
     let revision = dataRevision

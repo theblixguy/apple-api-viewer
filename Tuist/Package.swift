@@ -18,10 +18,10 @@ let package = Package(
     .package(path: "../Modules/AppleAPIViewerCore"),
     .package(
       url: "https://github.com/nodes-app/swift-markdown-engine",
-      exact: "0.10.1"
+      exact: "0.11.0"
     ),
     .package(
-      url: "https://github.com/sparkle-project/Sparkle", exact: "2.9.4"
+      url: "https://github.com/sparkle-project/Sparkle", exact: "2.9.5"
     ),
     .package(
       url: "https://github.com/apple/swift-argument-parser", exact: "1.8.2"

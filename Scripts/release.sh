@@ -23,7 +23,7 @@ DMG_NAME="AppleAPIViewer-$VERSION.dmg"
 DMG_PATH="$RELEASE_DIR/$DMG_NAME"
 
 DOWNLOAD_URL_PREFIX="https://github.com/theblixguy/apple-api-viewer/releases/download/v$VERSION/"
-SPARKLE_TARBALL_URL="https://github.com/sparkle-project/Sparkle/releases/download/2.9.4/Sparkle-2.9.4.tar.xz"
+SPARKLE_TARBALL_URL="https://github.com/sparkle-project/Sparkle/releases/download/2.9.5/Sparkle-2.9.5.tar.xz"
 
 mkdir -p "$RELEASE_DIR"
 
@@ -121,8 +121,8 @@ xcrun stapler validate "$DMG_PATH"
 
 mkdir -p "$SPARKLE_DIR"
 if [[ ! -x "$SPARKLE_DIR/bin/generate_appcast" ]]; then
-  curl -sL -o "$RELEASE_DIR/Sparkle-2.9.4.tar.xz" "$SPARKLE_TARBALL_URL"
-  tar -xf "$RELEASE_DIR/Sparkle-2.9.4.tar.xz" -C "$SPARKLE_DIR"
+  curl -sL -o "$RELEASE_DIR/Sparkle-2.9.5.tar.xz" "$SPARKLE_TARBALL_URL"
+  tar -xf "$RELEASE_DIR/Sparkle-2.9.5.tar.xz" -C "$SPARKLE_DIR"
 fi
 
 rm -rf "$APPCAST_DIR"

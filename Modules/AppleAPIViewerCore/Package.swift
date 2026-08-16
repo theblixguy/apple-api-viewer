@@ -13,7 +13,7 @@ let package = Package(
   dependencies: [
     .package(path: "../SymbolCore"),
     .package(path: "../IndexKit"),
-    .package(url: "https://github.com/pointfreeco/sqlite-data", exact: "1.8.2"),
+    .package(url: "https://github.com/pointfreeco/sqlite-data", exact: "1.9.0"),
     .package(
       url: "https://github.com/pointfreeco/swift-dependencies",
       exact: "1.14.1"

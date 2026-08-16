@@ -26,6 +26,29 @@ struct SymbolTreeTests {
     #expect(renderState.children.contains { $0.symbol.name == "grainOffset" })
   }
 
+  @Test("An explicit USR match set builds the tree with ancestors")
+  func buildsTreeFromExplicitUSRMatchSet() throws {
+    let tree = try Self.loadIndex().tree(
+      matchingUSRs: [
+        "s:9PencilKit8PKStrokeV11RenderStateV11grainOffsetSo7CGPointVSgvp",
+      ]
+    )
+
+    let pkStroke = try #require(tree.first { $0.symbol.title == "PKStroke" })
+    #expect(!pkStroke.isMatch)
+    let renderState = try #require(
+      pkStroke.children.first { $0.symbol.title == "PKStroke.RenderState" }
+    )
+    #expect(!renderState.isMatch)
+    let grainOffset = try #require(
+      renderState.children.first { $0.symbol.name == "grainOffset" }
+    )
+    #expect(grainOffset.isMatch)
+
+    #expect(try Self.loadIndex().tree(matchingUSRs: ["s:unknown"]).isEmpty)
+    #expect(try Self.loadIndex().tree(matchingUSRs: []).isEmpty)
+  }
+
   @Test("Tree is empty when nothing matches")
   func returnsEmptyTreeWhenNothingMatches() throws {
     let tree = try Self.loadIndex().newSymbolTree(

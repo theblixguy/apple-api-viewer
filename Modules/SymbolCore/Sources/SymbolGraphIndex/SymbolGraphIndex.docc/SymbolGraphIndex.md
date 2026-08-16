@@ -24,3 +24,9 @@ new in those releases.
 
 - ``VersionSelection``
 - ``SymbolTreeNode``
+
+### Diffing snapshots
+
+- ``FrameworkDiff``
+- ``SymbolChange``
+- ``FrameworkDiffSummary``

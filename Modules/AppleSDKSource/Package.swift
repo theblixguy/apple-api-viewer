@@ -15,7 +15,7 @@ let package = Package(
     .package(path: "../SymbolSource"),
     .package(
       url: "https://github.com/swiftlang/swift-subprocess",
-      exact: "0.5.0"
+      exact: "1.0.0"
     ),
     .package(
       url: "https://github.com/pointfreeco/swift-dependencies",

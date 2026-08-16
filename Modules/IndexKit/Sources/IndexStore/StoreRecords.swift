@@ -104,6 +104,17 @@ struct AvailabilityStagingRecord {
   let usr: String
 }
 
+@Selection struct SourceSymbolRow {
+  let id: Int
+  let usr: String
+  let title: String
+  let kind: String
+  let pathComponents: String
+  let parentUSR: String?
+  let isDeprecated: Bool
+  let moduleName: String
+}
+
 @Selection struct SourceRow {
   let id: String
   let kind: String
