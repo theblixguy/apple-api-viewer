@@ -81,6 +81,9 @@ jobs:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           SPARKLE_PRIVATE_KEY_PATH: ${{ runner.temp }}/sparkle_ed25519
+          # The script renders the release notes through the GitHub
+          # markdown API, which needs a token.
+          GH_TOKEN: ${{ github.token }}
         run: |
           VERSION="${GITHUB_REF_NAME#v}"
           Scripts/release.sh "$VERSION"
@@ -90,7 +93,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           VERSION="${GITHUB_REF_NAME#v}"
-          gh release create "v$VERSION" ".release/AppleAPIViewer-$VERSION.dmg" --title "v$VERSION" --generate-notes
+          # The changelog section is the single source of the notes, so
+          # the release page matches the Sparkle update dialog.
+          gh release create "v$VERSION" ".release/AppleAPIViewer-$VERSION.dmg" --title "v$VERSION" --notes-file .release/release-notes.md
 
       - name: Commit appcast
         run: |
